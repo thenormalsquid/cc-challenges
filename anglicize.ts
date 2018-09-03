@@ -20,5 +20,6 @@ export const anglicize = (n: number): string => {
     if (n < 20) return ONES_TEENS[n];
     if (n < 100) return `${TEES[Math.floor(n/10)]}${insertSpace(n)}${ONES[n%10]}`;
     if (n < 1000) return `${ONES[Math.floor(n/100)]} hundred${n % 100 > 0 ? ' ' + anglicize(n%100) : ''}`;
-    return '';
+    if (n < 100000) return `${ONES_TEENS[Math.floor(n/1000)]} thousand${n % 1000 > 0 ? ' ' + anglicize(n%1000) : ''}`
+    if (n < 999999) return `${ONES[Math.floor(n/100000)]} hundred thousand${n % 1000 > 0 ? ' ' + anglicize(n%1000) : ''}`
 }
