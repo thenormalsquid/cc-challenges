@@ -64,13 +64,13 @@ test('anglicize with integers 20 - 99', () => {
 
 test('anglicize with hundreds', () => {
     for (let i = 100; i < 1000; i += 100) {
-        expect(anglicize(100)).toBe(`${ONES[i/100]} hundred`);
+        expect(anglicize(i)).toBe(`${ONES[i/100]} hundred`);
     }
 });
 
 test('anglicize with 1-9 thousand', () => {
     for (let i = 1000; i < 10000; i += 1000) {
-        expect(anglicize(100)).toBe(`${ONES[i/1000]} thousand`);
+        expect(anglicize(i)).toBe(`${ONES[i/1000]} thousand`);
     }
 });
 
