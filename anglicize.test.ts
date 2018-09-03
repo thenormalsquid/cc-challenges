@@ -1,4 +1,4 @@
-import { anglicize, ONES } from './anglicize';
+import { anglicize, insertSpace, ONES } from './anglicize';
 
 
 test('anglicize with n < 1 or n > 999,999', () => {
@@ -85,3 +85,14 @@ test('anglicize with 1-9 thousand', () => {
 //         expect(anglicize(100)).toBe(`${ones[i/1000]} thousand`);
 //     }
 // });
+
+test('anglicize', () => {
+    expect(anglicize(37)).toBe('thirty seven');
+    expect(anglicize(450)).toBe('four hundred fifty');
+    expect(anglicize(300206)).toBe('three hundred thousand two hundred six');
+});
+
+test('insertSpace', () => {
+    expect(insertSpace(20)).toBe('');
+    expect(insertSpace(21)).toBe(' ');
+});
