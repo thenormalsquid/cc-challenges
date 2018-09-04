@@ -13,6 +13,8 @@ export const insertSpace = (n: number): string => n % 10 === 0 ? '' : ' ';
 
 export const thousandth = (n: number): string => n % 1000 > 0 ? ' ' + anglicize(n % 1000) : '';
 
+const calculateTees = (n: number) => Math.floor(n/1000) % 100;
+
 /**
  * anglicizes passed integers
  * @param n integer such that it satisfies 0 < n < 1,000,000
@@ -23,5 +25,5 @@ export const anglicize = (n: number): string => {
     if (n < 100) return `${TEES[Math.floor(n/10)]}${insertSpace(n)}${ONES[n%10]}`;
     if (n < 1000) return `${ONES[Math.floor(n/100)]} hundred${n % 100 > 0 ? ' ' + anglicize(n%100) : ''}`;
     if (n < 100000) return `${ONES_TEENS[Math.floor(n/1000)]} thousand${thousandth(n)}`
-    if (n < 999999) return `${ONES[Math.floor(n/100000)]} hundred thousand${thousandth(n)}`
+    if (n < 1000000) return `${ONES[Math.floor(n/100000)]} hundred${calculateTees(n) > 0? ' ' + anglicize(calculateTees(n)) : ''} thousand${thousandth(n)}`
 }

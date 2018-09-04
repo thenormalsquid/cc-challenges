@@ -92,6 +92,7 @@ test('anglicize', () => {
     expect(anglicize(450)).toBe('four hundred fifty');
     expect(anglicize(19998)).toBe('nineteen thousand nine hundred ninety eight');
     expect(anglicize(300206)).toBe('three hundred thousand two hundred six');
+    expect(anglicize(999999)).toBe('nine hundred ninety nine thousand nine hundred ninety nine');
 });
 
 test('insertSpace', () => {
